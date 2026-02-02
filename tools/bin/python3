@@ -1,0 +1,24 @@
+#!/bin/sh
+# Python3 shim for latexminted that uses project's virtual environment
+set -e
+
+# Get the directory where this script is located
+script_dir="$(cd "$(dirname "$0")" && pwd)"
+# Go up two levels to get to the project root
+project_root="$(cd "$script_dir/../.." && pwd)"
+venv_python="$project_root/.venv/bin/python3"
+
+# If venv exists, use it
+if [ -x "$venv_python" ]; then
+  exec "$venv_python" "$@"
+fi
+
+# Fallback to system python
+for cand in python3.12 python3.13 python3.11 python3.10 python3; do
+  if command -v "$cand" >/dev/null 2>&1; then
+    exec "$cand" "$@"
+  fi
+done
+
+printf "python3 interpreter not found\n" 1>&2
+exit 127

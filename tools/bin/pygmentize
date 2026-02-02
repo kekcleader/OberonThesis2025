@@ -1,0 +1,22 @@
+#!/bin/sh
+# Pygmentize wrapper that uses project's virtual environment
+set -e
+
+# Get the directory where this script is located
+script_dir="$(cd "$(dirname "$0")" && pwd)"
+# Go up two levels to get to the project root
+project_root="$(cd "$script_dir/../.." && pwd)"
+venv_pygmentize="$project_root/.venv/bin/pygmentize"
+
+# If venv exists, use it
+if [ -x "$venv_pygmentize" ]; then
+  exec "$venv_pygmentize" "$@"
+fi
+
+# Fallback to system pygmentize
+if command -v pygmentize >/dev/null 2>&1; then
+  exec pygmentize "$@"
+fi
+
+printf "pygmentize not found\n" 1>&2
+exit 127

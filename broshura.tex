@@ -1,0 +1,81 @@
+\documentclass[a4paper]{article}
+\usepackage[paperwidth=210mm,paperheight=297mm,margin=0mm]{geometry}
+\usepackage{pdfpages}
+
+\includepdfset{
+  pagecommand={},
+  turn=true
+}
+
+\begin{document}
+% Обложка отдельно (1 лист)
+\includepdf[
+  pages={174,1},
+  nup=2x1,
+  landscape,
+  noautoscale,
+  scale=0.95,
+  delta=0 8mm,
+  offset=0mm 0mm
+]{disser.pdf}
+% Тетрадь 1 (8 листов = 32 стр.): страницы 2-33
+\includepdf[
+  pages=2-33,
+  booklet,
+  landscape,
+  noautoscale,
+  scale=0.95,
+  delta=0 8mm,
+  offset=0mm 0mm
+]{disser.pdf}
+% Тетрадь 2 (8 листов = 32 стр.): страницы 34-65
+\includepdf[
+  pages=34-65,
+  booklet,
+  landscape,
+  noautoscale,
+  scale=0.95,
+  delta=0 8mm,
+  offset=0mm 0mm
+]{disser.pdf}
+% Тетрадь 3 (8 листов = 32 стр.): страницы 66-97
+\includepdf[
+  pages=66-97,
+  booklet,
+  landscape,
+  noautoscale,
+  scale=0.95,
+  delta=0 8mm,
+  offset=0mm 0mm
+]{disser.pdf}
+% Тетрадь 4 (8 листов = 32 стр.): страницы 98-129
+\includepdf[
+  pages=98-129,
+  booklet,
+  landscape,
+  noautoscale,
+  scale=0.95,
+  delta=0 8mm,
+  offset=0mm 0mm
+]{disser.pdf}
+% Тетрадь 5 (8 листов = 32 стр.): страницы 130-161
+\includepdf[
+  pages=130-161,
+  booklet,
+  landscape,
+  noautoscale,
+  scale=0.95,
+  delta=0 8mm,
+  offset=0mm 0mm
+]{disser.pdf}
+% Тетрадь 6 (3 листа = 12 стр.): страницы 162-173
+\includepdf[
+  pages=162-173,
+  booklet,
+  landscape,
+  noautoscale,
+  scale=0.95,
+  delta=0 8mm,
+  offset=0mm 0mm
+]{disser.pdf}
+\end{document}
