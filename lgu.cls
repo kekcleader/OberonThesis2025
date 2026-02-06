@@ -123,7 +123,7 @@
 \renewcommand\@biblabel[1]{#1.}
 
 \newcommand{\literatura}[1]{%
-	\newpage\thispagestyle{empty}
+	\newpage\thispagestyle{plain}
 	\renewcommand{\baselinestretch}{1}
 	\bibliographystyle{unsrtnat}
 	\renewcommand\refname{Список использованной литературы}
